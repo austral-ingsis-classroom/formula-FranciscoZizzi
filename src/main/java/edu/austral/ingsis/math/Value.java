@@ -1,13 +1,19 @@
 package edu.austral.ingsis.math;
 
-public class Value<N extends Number> implements Function<N> {
+public class Value implements Function {
+  private final Double value;
+
+  public Value(Double value) {
+    this.value = value;
+  }
+
   @Override
-  public N solve() {
-    return null;
+  public Double solve() {
+    return value;
   }
 
   @Override
   public void accept(Visitor v) {
-
+    // TODO
   }
 }

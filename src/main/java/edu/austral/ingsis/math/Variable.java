@@ -1,9 +1,21 @@
 package edu.austral.ingsis.math;
 
-public class Variable<N extends Number> implements Function<N>{
+public class Variable implements Function {
+  private Double value;
+  private final String name;
+
+  public Variable(Double value, String name) {
+    this.value = value;
+    this.name = name;
+  }
+
+  public Variable(String name) {
+    this.name = name;
+  }
+
   @Override
-  public N solve() {
-    return null;
+  public Double solve() {
+    return value;
   }
 
   @Override
