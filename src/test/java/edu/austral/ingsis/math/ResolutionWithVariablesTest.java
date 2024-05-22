@@ -10,7 +10,8 @@ public class ResolutionWithVariablesTest {
   /** Case 1 + x where x = 3 */
   @Test
   public void shouldResolveFunction1() {
-    final Double result = 4d;
+    Function function = new Addition(new Value(1d), new Variable("x", 3d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(4d));
   }
@@ -18,7 +19,8 @@ public class ResolutionWithVariablesTest {
   /** Case 12 / div where div = 4 */
   @Test
   public void shouldResolveFunction2() {
-    final Double result = 3d;
+    Function function = new Division(new Value(12d), new Variable("div", 4d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(3d));
   }
@@ -26,7 +28,8 @@ public class ResolutionWithVariablesTest {
   /** Case (9 / x) * y where x = 3 and y = 4 */
   @Test
   public void shouldResolveFunction3() {
-    final Double result = 12d;
+    Function function = new Multiplication(new Division(new Value(9d), new Variable("x", 3d)), new Variable("y", 4d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(12d));
   }
@@ -34,7 +37,8 @@ public class ResolutionWithVariablesTest {
   /** Case (27 / a) ^ b where a = 9 and b = 3 */
   @Test
   public void shouldResolveFunction4() {
-    final Double result = 27d;
+    Function function = new Exponentiation(new Division(new Value(27d), new Variable("a", 9d)), new Variable("b", 3d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(27d));
   }
@@ -42,7 +46,8 @@ public class ResolutionWithVariablesTest {
   /** Case z ^ (1/2) where z = 36 */
   @Test
   public void shouldResolveFunction5() {
-    final Double result = 6d;
+    Function function = new Exponentiation(new Variable("z", 36d), new Division(new Value(1d), new Value(2d)));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(6d));
   }
@@ -50,7 +55,8 @@ public class ResolutionWithVariablesTest {
   /** Case |value| - 8 where value = 8 */
   @Test
   public void shouldResolveFunction6() {
-    final Double result = 0d;
+    Function function = new Subtraction(new AbsoluteValue(new Variable("value", 8d)), new Value(8d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(0d));
   }
@@ -58,7 +64,8 @@ public class ResolutionWithVariablesTest {
   /** Case |value| - 8 where value = 8 */
   @Test
   public void shouldResolveFunction7() {
-    final Double result = 0d;
+    Function function = new Subtraction(new AbsoluteValue(new Variable("value", 8d)), new Value(8d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(0d));
   }
@@ -66,7 +73,8 @@ public class ResolutionWithVariablesTest {
   /** Case (5 - i) * 8 where i = 2 */
   @Test
   public void shouldResolveFunction8() {
-    final Double result = 24d;
+    Function function = new Multiplication(new Subtraction(new Value(5d), new Variable("i", 2d)), new Value(8d));
+    final Double result = function.solve();
 
     assertThat(result, equalTo(24d));
   }

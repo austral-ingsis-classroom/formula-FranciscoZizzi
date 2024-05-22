@@ -4,7 +4,7 @@ public class Variable implements Function {
   private Double value;
   private final String name;
 
-  public Variable(Double value, String name) {
+  public Variable(String name, Double value) {
     this.value = value;
     this.name = name;
   }
