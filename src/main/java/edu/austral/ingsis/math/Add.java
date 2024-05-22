@@ -1,0 +1,13 @@
+package edu.austral.ingsis.math;
+
+public class Add<N extends Number> implements Operator<N> {
+  @Override
+  public N solve() {
+    return null;
+  }
+
+  @Override
+  public void accept(Visitor v) {
+
+  }
+}

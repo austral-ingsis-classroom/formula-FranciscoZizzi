@@ -1,0 +1,86 @@
+@startuml
+'TODO entregar como pdf
+interface Visitable {
+    +accept(visitor: Visitor)
+}
+interface Function<N extends Number> extends Visitable{
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Variable implements Function {
+    -value: N
+    -name: String
+    +setValue(Number)
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Value implements Function {
+    -value: N
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+interface Operator implements Function {
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Add implements Operator {
+    -leftChild: Function
+    -rightChild: Function
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Subtract implements Operator {
+    -leftChild: Function
+    -rightChild: Function
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Multiply implements Operator {
+    -leftChild: Function
+    -rightChild: Function
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Divide implements Operator {
+    -leftChild: Function
+    -rightChild: Function
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Sqrt implements Operator {
+    -child: Function
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Exponentiation implements Operator {
+    -child: Function
+    -exponent:
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+class Abs implements Operator {
+    -child: Function
+    +solve(): N
+    +accept(visitor: Visitor)
+}
+
+interface Visitor {
+    +visit(Operator)
+    +visit(Variable)
+    +visit(Value)
+}
+class FunctionPrinter implements Visitor {
+    +visit(Operator)
+    +visit(Variable)
+    +visit(Value)
+}
+class VariableLister implements Visitor {
+    +visit(Operator)
+    +visit(Variable)
+    +visit(Value)
+}
+
+
+Function --* Operator
+Visitable -> Visitor
+@enduml
