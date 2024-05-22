@@ -2,7 +2,7 @@ package edu.austral.ingsis.math;
 
 public class FunctionPrinter implements Visitor {
   @Override
-  public void visit(Operator operator) {
+  public void visit(BinaryOperator binaryOperator) {
 
   }
 

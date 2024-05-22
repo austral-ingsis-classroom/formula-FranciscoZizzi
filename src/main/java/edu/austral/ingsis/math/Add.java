@@ -1,6 +1,6 @@
 package edu.austral.ingsis.math;
 
-public class Add implements Operator {
+public class Add implements BinaryOperator {
   private final Function leftChild;
   private final Function rightChild;
 

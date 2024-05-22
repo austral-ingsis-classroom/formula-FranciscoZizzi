@@ -1,6 +1,6 @@
 package edu.austral.ingsis.math;
 
-public class SquareRoot implements Operator {
+public class SquareRoot implements UnaryOperator {
   private final Function child;
 
   public SquareRoot(Function child) {

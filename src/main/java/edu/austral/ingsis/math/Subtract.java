@@ -1,6 +1,6 @@
 package edu.austral.ingsis.math;
 
-public class Subtract implements Operator {
+public class Subtract implements BinaryOperator {
   private final Function leftChild;
   private final Function rightChild;
 

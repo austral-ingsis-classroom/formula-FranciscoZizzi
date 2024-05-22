@@ -1,6 +1,6 @@
 package edu.austral.ingsis.math;
 
-public class Divide implements Operator {
+public class Divide implements BinaryOperator {
   private final Function leftChild;
   private final Function rightChild;
 

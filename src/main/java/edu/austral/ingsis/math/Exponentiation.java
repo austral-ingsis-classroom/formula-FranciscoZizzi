@@ -1,17 +1,17 @@
 package edu.austral.ingsis.math;
 
-public class Exponentiation implements Operator {
-  private final Function child;
-  private final Double exponent;
+public class Exponentiation implements BinaryOperator {
+  private final Function leftChild;
+  private final Function rightChild;
 
-  public Exponentiation(Function child, Double exponent) {
-    this.child = child;
-    this.exponent = exponent;
+  public Exponentiation(Function leftChild, Function rightChild) {
+    this.leftChild = leftChild;
+    this.rightChild = rightChild;
   }
 
   @Override
   public Double solve() {
-    return Math.pow(child.solve(), exponent);
+    return Math.pow(leftChild.solve(), rightChild.solve());
   }
 
   @Override
