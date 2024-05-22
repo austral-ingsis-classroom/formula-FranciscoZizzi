@@ -3,15 +3,30 @@ package edu.austral.ingsis.math;
 import static java.lang.Math.abs;
 
 public class AbsoluteValue implements UnaryOperator {
-  private final Function child;
+  private final Function operand;
 
-  public AbsoluteValue(Function child) {
-    this.child = child;
+  public AbsoluteValue(Function operand) {
+    this.operand = operand;
   }
 
   @Override
   public Double solve() {
-    return abs(child.solve());
+    return abs(operand.solve());
+  }
+
+  @Override
+  public Function getOperand() {
+    return operand;
+  }
+
+  @Override
+  public String getLeftSymbol() {
+    return "|";
+  }
+
+  @Override
+  public String getRightSymbol() {
+    return "|";
   }
 
   @Override

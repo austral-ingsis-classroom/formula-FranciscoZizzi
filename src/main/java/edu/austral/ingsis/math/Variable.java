@@ -18,6 +18,10 @@ public class Variable implements Function {
     return value;
   }
 
+  public String getName() {
+    return name;
+  }
+
   @Override
   public void accept(Visitor visitor) {
     visitor.visit(this);
