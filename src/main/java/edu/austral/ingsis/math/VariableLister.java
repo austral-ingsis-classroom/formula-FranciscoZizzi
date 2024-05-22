@@ -23,9 +23,7 @@ public class VariableLister implements Visitor {
   }
 
   @Override
-  public void visit(Value value) {
-
-  }
+  public void visit(Value value) {}
 
   public List<String> getVariables() {
     return variables;

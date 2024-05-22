@@ -28,7 +28,8 @@ public class ResolutionTest {
   /** Case (9 / 2) * 3 */
   @Test
   public void shouldResolveSimpleFunction3() {
-    Function function = new Multiplication(new Division(new Value(9d), new Value(2d)), new Value(3d));
+    Function function =
+        new Multiplication(new Division(new Value(9d), new Value(2d)), new Value(3d));
     final Double result = function.solve();
 
     assertThat(result, equalTo(13.5d));
@@ -37,7 +38,8 @@ public class ResolutionTest {
   /** Case (27 / 6) ^ 2 */
   @Test
   public void shouldResolveSimpleFunction4() {
-    Function function = new Exponentiation(new Division(new Value(27d), new Value(6d)), new Value(2d));
+    Function function =
+        new Exponentiation(new Division(new Value(27d), new Value(6d)), new Value(2d));
     final Double result = function.solve();
 
     assertThat(result, equalTo(20.25d));
@@ -46,7 +48,8 @@ public class ResolutionTest {
   /** Case 36 ^ (1/2) */
   @Test
   public void shouldResolveSimpleFunction5() {
-    Function function = new Exponentiation(new Value(36d), new Division(new Value(1d), new Value(2d)));
+    Function function =
+        new Exponentiation(new Value(36d), new Division(new Value(1d), new Value(2d)));
     final Double result = function.solve();
 
     assertThat(result, equalTo(6d));
@@ -73,7 +76,8 @@ public class ResolutionTest {
   /** Case (5 - 5) * 8 */
   @Test
   public void shouldResolveSimpleFunction8() {
-    Function function = new Multiplication(new Subtraction(new Value(5d), new Value(5d)), new Value(8d));
+    Function function =
+        new Multiplication(new Subtraction(new Value(5d), new Value(5d)), new Value(8d));
     final Double result = function.solve();
 
     assertThat(result, equalTo(0d));

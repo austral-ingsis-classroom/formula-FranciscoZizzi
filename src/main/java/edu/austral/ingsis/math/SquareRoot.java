@@ -31,5 +31,4 @@ public class SquareRoot implements UnaryOperator {
   public void accept(Visitor visitor) {
     visitor.visit(this);
   }
-
 }
