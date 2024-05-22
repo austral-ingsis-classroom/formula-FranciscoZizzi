@@ -1,9 +1,17 @@
 package edu.austral.ingsis.math;
 
-public class AbsoluteValue<N extends Number> implements Operator<N> {
+import static java.lang.Math.abs;
+
+public class AbsoluteValue implements Operator {
+  private final Function child;
+
+  public AbsoluteValue(Function child) {
+    this.child = child;
+  }
+
   @Override
-  public N solve() {
-    return null;
+  public Double solve() {
+    return abs(child.solve());
   }
 
   @Override

@@ -1,5 +1,5 @@
 package edu.austral.ingsis.math;
 
-public interface Operator<N extends Number> extends Function<N>{
+public interface Operator extends Function {
 
 }

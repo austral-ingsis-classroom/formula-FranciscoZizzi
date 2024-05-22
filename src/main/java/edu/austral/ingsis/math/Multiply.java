@@ -1,9 +1,17 @@
 package edu.austral.ingsis.math;
 
-public class Multiply<N extends Number> implements Operator<N> {
+public class Multiply implements Operator {
+  private final Function leftChild;
+  private final Function rightChild;
+
+  public Multiply(Function leftChild, Function rightChild) {
+    this.leftChild = leftChild;
+    this.rightChild = rightChild;
+  }
+
   @Override
-  public N solve() {
-    return null;
+  public Double solve() {
+    return leftChild.solve() * rightChild.solve();
   }
 
   @Override

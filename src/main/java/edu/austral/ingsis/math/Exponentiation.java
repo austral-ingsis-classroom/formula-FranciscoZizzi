@@ -1,9 +1,17 @@
 package edu.austral.ingsis.math;
 
-public class Exponentiation<N extends Number> implements Operator<N> {
+public class Exponentiation implements Operator {
+  private final Function child;
+  private final Double exponent;
+
+  public Exponentiation(Function child, Double exponent) {
+    this.child = child;
+    this.exponent = exponent;
+  }
+
   @Override
-  public N solve() {
-    return null;
+  public Double solve() {
+    return Math.pow(child.solve(), exponent);
   }
 
   @Override

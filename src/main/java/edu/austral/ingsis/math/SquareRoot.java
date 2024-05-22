@@ -1,9 +1,15 @@
 package edu.austral.ingsis.math;
 
-public class SquareRoot<N extends Number> implements Operator<N> {
+public class SquareRoot implements Operator {
+  private final Function child;
+
+  public SquareRoot(Function child) {
+    this.child = child;
+  }
+
   @Override
-  public N solve() {
-    return null;
+  public Double solve() {
+    return Math.sqrt(child.solve());
   }
 
   @Override
