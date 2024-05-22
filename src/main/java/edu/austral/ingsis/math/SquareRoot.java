@@ -13,7 +13,7 @@ public class SquareRoot implements Operator {
   }
 
   @Override
-  public void accept(Visitor v) {
-
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 }

@@ -13,7 +13,7 @@ public class Value implements Function {
   }
 
   @Override
-  public void accept(Visitor v) {
-    // TODO
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 }

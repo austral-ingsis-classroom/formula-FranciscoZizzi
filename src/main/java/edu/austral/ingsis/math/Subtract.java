@@ -15,7 +15,7 @@ public class Subtract implements Operator {
   }
 
   @Override
-  public void accept(Visitor v) {
-
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 }

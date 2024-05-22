@@ -19,7 +19,7 @@ public class Variable implements Function {
   }
 
   @Override
-  public void accept(Visitor v) {
-
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 }
