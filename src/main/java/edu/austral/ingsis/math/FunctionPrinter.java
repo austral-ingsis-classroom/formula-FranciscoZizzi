@@ -1,31 +1,43 @@
 package edu.austral.ingsis.math;
 
 public class FunctionPrinter implements Visitor {
-  private StringBuilder string = new StringBuilder();
+  private final StringBuilder stringBuilder = new StringBuilder();
 
   @Override
   public void visit(BinaryOperator binaryOperator) {
     binaryOperator.getLeftOperand().accept(this);
-    string.append(" ");
-    string.append(binaryOperator.getSymbol());
-    string.append(" ");
+    stringBuilder.append(" ");
+    stringBuilder.append(binaryOperator.getSymbol());
+    stringBuilder.append(" ");
     binaryOperator.getRightOperand().accept(this);
   }
 
   @Override
   public void visit(UnaryOperator unaryOperator) {
-    string.append(unaryOperator.getLeftSymbol());
-    unaryOperator.accept(this);
-    string.append(unaryOperator.getRightSymbol());
+    stringBuilder.append(unaryOperator.getLeftSymbol());
+    unaryOperator.getOperand().accept(this);
+    stringBuilder.append(unaryOperator.getRightSymbol());
   }
 
   @Override
   public void visit(Variable variable) {
-    string.append(variable.getName());
+    stringBuilder.append(variable.getName());
   }
 
   @Override
   public void visit(Value value) {
-    string.append(value.getValue());
+    String number = value.getValue().toString();
+    for (int i = number.length() - 1; i >= 0; i--) {
+      if (number.charAt(i) != '0' && number.charAt(i) != '.') {
+        break;
+      }
+      number = number.substring(0, i);
+    }
+
+    stringBuilder.append(number);
+  }
+
+  public String getString() {
+    return stringBuilder.toString();
   }
 }

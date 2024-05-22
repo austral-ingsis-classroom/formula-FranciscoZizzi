@@ -10,12 +10,17 @@ public class Variable implements Function {
   }
 
   public Variable(String name) {
+    this.value = 1d;
     this.name = name;
   }
 
   @Override
   public Double solve() {
     return value;
+  }
+
+  public void setValue(Double value) {
+    this.value = value;
   }
 
   public String getName() {
