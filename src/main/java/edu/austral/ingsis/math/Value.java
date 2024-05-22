@@ -12,10 +12,6 @@ public class Value implements Function {
     return value;
   }
 
-  public Double getValue() {
-    return value;
-  }
-
   @Override
   public void accept(Visitor visitor) {
     visitor.visit(this);

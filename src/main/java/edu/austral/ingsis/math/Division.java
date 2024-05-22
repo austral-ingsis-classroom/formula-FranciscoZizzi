@@ -1,17 +1,17 @@
 package edu.austral.ingsis.math;
 
-public class Multiply implements BinaryOperator {
+public class Division implements BinaryOperator {
   private final Function leftOperand;
   private final Function rightOperand;
 
-  public Multiply(Function leftOperand, Function rightOperand) {
+  public Division(Function leftOperand, Function rightOperand) {
     this.leftOperand = leftOperand;
     this.rightOperand = rightOperand;
   }
 
   @Override
   public Double solve() {
-    return leftOperand.solve() * rightOperand.solve();
+    return leftOperand.solve() / rightOperand.solve();
   }
 
   @Override
@@ -26,7 +26,7 @@ public class Multiply implements BinaryOperator {
 
   @Override
   public String getSymbol() {
-    return "*";
+    return "/";
   }
 
   @Override

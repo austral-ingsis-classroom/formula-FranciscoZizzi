@@ -26,7 +26,7 @@ public class FunctionPrinter implements Visitor {
 
   @Override
   public void visit(Value value) {
-    String number = value.getValue().toString();
+    String number = value.solve().toString();
     for (int i = number.length() - 1; i >= 0; i--) {
       if (number.charAt(i) != '0' && number.charAt(i) != '.') {
         break;

@@ -1,17 +1,17 @@
 package edu.austral.ingsis.math;
 
-public class Subtract implements BinaryOperator {
+public class Multiplication implements BinaryOperator {
   private final Function leftOperand;
   private final Function rightOperand;
 
-  public Subtract(Function leftOperand, Function rightOperand) {
+  public Multiplication(Function leftOperand, Function rightOperand) {
     this.leftOperand = leftOperand;
     this.rightOperand = rightOperand;
   }
 
   @Override
   public Double solve() {
-    return leftOperand.solve() - rightOperand.solve();
+    return leftOperand.solve() * rightOperand.solve();
   }
 
   @Override
@@ -26,7 +26,7 @@ public class Subtract implements BinaryOperator {
 
   @Override
   public String getSymbol() {
-    return "-";
+    return "*";
   }
 
   @Override

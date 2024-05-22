@@ -3,65 +3,53 @@
 interface Visitable {
     +accept(visitor: Visitor)
 }
-interface Function<N extends Number> extends Visitable{
-    +solve(): N
-    +accept(visitor: Visitor)
+interface Function extends Visitable{
+    +solve(): Double
 }
 class Variable implements Function {
-    -value: N
+    -value: Double
     -name: String
     +setValue(Number)
-    +solve(): N
-    +accept(visitor: Visitor)
+    +getName(): String
 }
 class Value implements Function {
-    -value: N
-    +solve(): N
-    +accept(visitor: Visitor)
+    -value: Double
 }
-interface Operator implements Function {
-    +solve(): N
-    +accept(visitor: Visitor)
+interface BinaryOperator extends Function {
+    +getLeftOperand(): Function
+    +getRightOperand(): Function
+    +getSymbol(): String
 }
-class Add implements Operator {
+interface UnaryOperator extends Function {
+    +getOperand(): Function
+    +getLeftSymbol(): String
+    +getRightSymbol(): String
+}
+class Addition implements BinaryOperator {
     -leftChild: Function
     -rightChild: Function
-    +solve(): N
-    +accept(visitor: Visitor)
 }
-class Subtract implements Operator {
+class Subtraction implements BinaryOperator {
     -leftChild: Function
     -rightChild: Function
-    +solve(): N
-    +accept(visitor: Visitor)
 }
-class Multiply implements Operator {
+class Multiplication implements BinaryOperator {
     -leftChild: Function
     -rightChild: Function
-    +solve(): N
-    +accept(visitor: Visitor)
 }
-class Divide implements Operator {
+class Division implements BinaryOperator {
     -leftChild: Function
     -rightChild: Function
-    +solve(): N
-    +accept(visitor: Visitor)
 }
-class Sqrt implements Operator {
+class SquareRoot implements UnaryOperator {
     -child: Function
-    +solve(): N
-    +accept(visitor: Visitor)
 }
-class Exponentiation implements Operator {
-    -child: Function
-    -exponent:
-    +solve(): N
-    +accept(visitor: Visitor)
+class Exponentiation implements BinaryOperator {
+    -leftChild: Function
+    -rightChild: Function
 }
-class Abs implements Operator {
+class AbsoluteValue implements UnaryOperator {
     -child: Function
-    +solve(): N
-    +accept(visitor: Visitor)
 }
 
 interface Visitor {
@@ -81,6 +69,7 @@ class VariableLister implements Visitor {
 }
 
 
-Function --* Operator
+Function --* BinaryOperator
+Function --* UnaryOperator
 Visitable -> Visitor
 @enduml

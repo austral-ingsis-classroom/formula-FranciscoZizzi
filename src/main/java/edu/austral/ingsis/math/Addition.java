@@ -1,10 +1,10 @@
 package edu.austral.ingsis.math;
 
-public class Add implements BinaryOperator {
+public class Addition implements BinaryOperator {
   private final Function leftOperand;
   private final Function rightOperand;
 
-  public Add(Function leftOperand, Function rightOperand) {
+  public Addition(Function leftOperand, Function rightOperand) {
     this.leftOperand = leftOperand;
     this.rightOperand = rightOperand;
   }

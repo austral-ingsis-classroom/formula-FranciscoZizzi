@@ -10,7 +10,7 @@ public class PrintTest {
   /** Case 1 + 6 */
   @Test
   public void shouldPrintFunction1() {
-    Function function = new Add(new Value(1d), new Value(6d));
+    Function function = new Addition(new Value(1d), new Value(6d));
 
     final String expected = "1 + 6";
     final String result = printFunction(function);
@@ -21,7 +21,7 @@ public class PrintTest {
   /** Case 12 / 2 */
   @Test
   public void shouldPrintFunction2() {
-    Function function = new Divide(new Value(12d), new Value(2d));
+    Function function = new Division(new Value(12d), new Value(2d));
 
     final String expected = "12 / 2";
     final String result = printFunction(function);
@@ -32,7 +32,7 @@ public class PrintTest {
   /** Case (9 / 2) * 3 */
   @Test
   public void shouldPrintFunction3() {
-    Function function = new Multiply(new Parenthesis(new Divide(new Value(9d), new Value(2d))), new Value(3d));
+    Function function = new Multiplication(new Parenthesis(new Division(new Value(9d), new Value(2d))), new Value(3d));
 
     final String expected = "(9 / 2) * 3";
     final String result = printFunction(function);
@@ -43,7 +43,7 @@ public class PrintTest {
   /** Case (27 / 6) ^ 2 */
   @Test
   public void shouldPrintFunction4() {
-    Function function = new Exponentiation(new Parenthesis(new Divide(new Value(27d), new Value(6d))), new Value(2d));
+    Function function = new Exponentiation(new Parenthesis(new Division(new Value(27d), new Value(6d))), new Value(2d));
 
     final String expected = "(27 / 6) ^ 2";
     final String result = printFunction(function);
@@ -54,7 +54,7 @@ public class PrintTest {
   /** Case |value| - 8 */
   @Test
   public void shouldPrintFunction6() {
-    Function function = new Subtract(new AbsoluteValue(new Variable("value")), new Value(8d));
+    Function function = new Subtraction(new AbsoluteValue(new Variable("value")), new Value(8d));
 
     final String expected = "|value| - 8";
     final String result = printFunction(function);
@@ -65,7 +65,7 @@ public class PrintTest {
   /** Case |value| - 8 */
   @Test
   public void shouldPrintFunction7() {
-    Function function = new Subtract(new AbsoluteValue(new Variable("value")), new Value(8d));
+    Function function = new Subtraction(new AbsoluteValue(new Variable("value")), new Value(8d));
 
     final String expected = "|value| - 8";
     final String result = printFunction(function);
@@ -76,7 +76,7 @@ public class PrintTest {
   /** Case (5 - i) * 8 */
   @Test
   public void shouldPrintFunction8() {
-    Function function = new Multiply(new Parenthesis(new Subtract(new Value(5d), new Variable("i"))), new Value(8d));
+    Function function = new Multiplication(new Parenthesis(new Subtraction(new Value(5d), new Variable("i"))), new Value(8d));
 
     final String expected = "(5 - i) * 8";
     final String result = printFunction(function);
