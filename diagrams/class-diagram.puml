@@ -1,5 +1,4 @@
 @startuml
-'TODO entregar como pdf
 interface Visitable {
     +accept(visitor: Visitor)
 }
