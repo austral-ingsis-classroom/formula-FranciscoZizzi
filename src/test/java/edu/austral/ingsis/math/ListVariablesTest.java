@@ -1,12 +1,11 @@
 package edu.austral.ingsis.math;
 
-import org.junit.jupiter.api.Test;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.empty;
 
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
 public class ListVariablesTest {
 
@@ -32,7 +31,7 @@ public class ListVariablesTest {
   @Test
   public void shouldListVariablesFunction3() {
     Function function =
-        new Multiplication(new Division(new Value(9d), new Variable("x")), new Variable(" y"));
+        new Multiplication(new Division(new Value(9d), new Variable("x")), new Variable("y"));
     final List<String> result = listVariables(function);
 
     assertThat(result, containsInAnyOrder("x", "y"));
