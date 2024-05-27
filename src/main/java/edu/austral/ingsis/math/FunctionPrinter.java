@@ -5,11 +5,13 @@ public class FunctionPrinter implements Visitor {
 
   @Override
   public void visit(BinaryOperator binaryOperator) {
+    stringBuilder.append("(");
     binaryOperator.getLeftOperand().accept(this);
     stringBuilder.append(" ");
     stringBuilder.append(binaryOperator.getSymbol());
     stringBuilder.append(" ");
     binaryOperator.getRightOperand().accept(this);
+    stringBuilder.append(")");
   }
 
   @Override
@@ -38,6 +40,10 @@ public class FunctionPrinter implements Visitor {
   }
 
   public String getString() {
+    if (stringBuilder.charAt(0) == '(' && stringBuilder.charAt(stringBuilder.length() - 1) == ')') {
+      stringBuilder.deleteCharAt(0);
+      stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+    }
     return stringBuilder.toString();
   }
 }

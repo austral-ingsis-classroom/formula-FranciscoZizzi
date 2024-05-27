@@ -33,8 +33,7 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction3() {
     Function function =
-        new Multiplication(
-            new Parenthesis(new Division(new Value(9d), new Value(2d))), new Value(3d));
+        new Multiplication(new Division(new Value(9d), new Value(2d)), new Value(3d));
 
     final String expected = "(9 / 2) * 3";
     final String result = printFunction(function);
@@ -46,8 +45,7 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction4() {
     Function function =
-        new Exponentiation(
-            new Parenthesis(new Division(new Value(27d), new Value(6d))), new Value(2d));
+        new Exponentiation(new Division(new Value(27d), new Value(6d)), new Value(2d));
 
     final String expected = "(27 / 6) ^ 2";
     final String result = printFunction(function);
@@ -81,8 +79,7 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction8() {
     Function function =
-        new Multiplication(
-            new Parenthesis(new Subtraction(new Value(5d), new Variable("i"))), new Value(8d));
+        new Multiplication(new Subtraction(new Value(5d), new Variable("i")), new Value(8d));
 
     final String expected = "(5 - i) * 8";
     final String result = printFunction(function);
